@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal Output</title>
+    <style>
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            color: black;
+            padding: 1%;
+            margin: 0;
+        }
+        .output {
+            margin-top: 5%;
+            background-color: #000;
+            color: #0f0;
+            padding: 1%;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="fixed-header">Terminal Output</h1>
+    <pre class="output">{{ output }}</pre>
+    <script>
+        var Files = JSON.parse('{{ file_urls|tojson|safe }}');
+        for (var i = 0; i < Files.length; i++) {
+            console.log(Files[i]);
+            window.open(Files[i], "_blank");
+        }
+        setTimeout(function() {
+            fetch("/wheel_generator?removal=yes");
+            window.location.href = "/upload";
+        }, 1000);
+    </script>
+</body>
+</html>

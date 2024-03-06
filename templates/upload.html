@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload to pip</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <style>
+        .output {
+            margin-top: 5%;
+            background-color: #000;
+            color: #0f0;
+            padding: 1%;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+        }
+
+        .container {
+            width: 500px;
+            margin-top: 2.5%;
+        }
+
+        .btn-primary {
+            margin-top: 5%;
+            margin-bottom: 5%;
+            align-self: center;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 7.5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">UPLOAD TO PYPI</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="password">API Key:</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter The API KEY">
+            </div>
+            <button type="submit" class="btn btn-primary">Next </button>
+        </form>
+    </div>
+    {% if output %}
+        <pre class="output">{{ output }}</pre>
+    {% endif %}
+</body>
+</html>

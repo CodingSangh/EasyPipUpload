@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tool Setup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Tool Setup</h1>
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload Main folder:</label>
+                <input type="file" class="form-control-file" id="file" name="file" webkitdirectory directory multiple>
+            </div>
+            <div class="form-group">
+                <label for="tool">Main File Name:</label>
+                <input type="text" class="form-control" id="tool" name="tool" placeholder="What is the Main File Name">
+            </div>
+            <div class="form-group">
+                <label for="tool_name">Tool Name:</label>
+                <input type="text" class="form-control" id="tool_name" name="tool_name" placeholder="Give Name To Your Tool">
+            </div>
+            <div class="form-group">
+                <label for="ver">Version:</label>
+                <input type="text" class="form-control" id="ver" name="ver" placeholder="Enter Version">
+            </div>
+            <div class="form-group">
+                <label for="desc">Description:</label>
+                <input type="text" class="form-control" id="desc" name="desc" placeholder="Write Short Description For your Tool">
+            </div>
+            <div class="form-group">
+                <label for="url">URL:</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="Provide URL for your Tool">
+            </div>
+            <div class="form-group">
+                <label for="rqrd">Required Files (comma separated):</label>
+                <input type="text" class="form-control" id="rqrd" name="rqrd" placeholder="eg: requests,colorama,flask">
+            </div>
+            <div class="form-group">
+                <label for="author">Author:</label>
+                <input type="text" class="form-control" id="author" name="author" placeholder="Author Name">
+            </div>
+            <button type="submit" class="btn btn-primary">Next </button>
+        </form>
+    </div>
+</body>
+</html>
